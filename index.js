@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 //create User
 
 app.post('/adduser',(req,res)=>{
-
 var employee = new EmployeeTable({
    username : req.body.username,
    email:req.body.email,
@@ -21,7 +20,6 @@ var employee = new EmployeeTable({
    created_at:_.now(),
    updated_at:_.now()
 });
-
  employee.save().then(()=>{
   //return employee.generateAuthToken();
 
@@ -156,3 +154,5 @@ res.status(400).send(JSON.stringify({status:false,restult:e}));
 app.listen(3000,()=>{
 console.log('server started 3000');
 });
+
+module.exports = app;
